@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flex-container {
+  display: flex;
+	max-width: device-width;
+	min-height: 81vh;
+}
+
+.flex-container > div {
+  width: 200px;
+  border: 0.5px solid black;
+  justify-content: center;
+}
+
+.main{
+    background-color: #FCF3CF;
+    font-size: 25px;
+    flex: 1 1;
+    text-align: center;
+}
+
+.left{
+    background-color:#AED6F1;
+    font-size: 19px;
+}
+
+.head{
+  flex-grow: 1;
+  border: 0.5px solid black;
+  background-color: #E5E7E9 ;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.footer{
+  border: 0.5px solid black;
+  background-color: #1A5276;
+  height: 60px;
+  
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    
+}
+.text{
+    display: flex;
+    align-items: center;
+}
+
+
+.half-containers {
+   max-height:47%;
+   min-height:47%;
+   background:#D1F2EB;
+   border:1px solid black;
+   margin: 10px;
+   justify-content: center;
+  
+}
+
+</style>
+<body>
+    <div class="head">
+        Header 
+
+      <br> <button id="add-new">Add content</button>  
+       <button id ="Remove dynamic Content" onclick="remove(list)">Remove Content</button> 
+       <br> Dynamic content
+       <br> <ul id="list">
+      </ul>   
+        
+    </div>
+    
+    <div class="flex-container">
+        <div class="left text ">Left Section</div>
+
+       <div class="main">
+        <div class="half-containers text">Part one</div>
+        <div class="half-containers text">Part Two</div>
+    </div>
+      
+      </div>
+    <footer class="footer">
+        <p style="color:white">Footer Section</p>
+      </footer>
+    
+</body>
+<script>
+var i = 0;
+
+document.getElementById('add-new').onclick = function() {
+  i++;
+  var list = document.getElementById('list');
+  var newEl = document.createElement('li');
+  newEl.setAttribute("id", "item" + i + "");
+  newEl.innerHTML = 'Line' + i;
+  newEl.setAttribute("onclick", "remove(Item)");
+  list.appendChild(newEl);
+}
+
+  function remove(el) {
+  var element = el;
+  element.remove();
+}
+  </script>
+  
+
+</html>
